@@ -21,7 +21,7 @@ import utils.DBUtil;
 public class CreateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
- 
+
     public CreateServlet() {
         super();
     }
@@ -54,6 +54,7 @@ public class CreateServlet extends HttpServlet {
             em.persist(m);
 
             em.getTransaction().commit();
+            request.getSession().setAttribute("flush", "登録が完了しました。");
             em.close();
 
             response.sendRedirect(request.getContextPath() + "/index");
